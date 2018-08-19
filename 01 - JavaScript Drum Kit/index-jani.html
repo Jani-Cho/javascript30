@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>JS Drum Kit</title>
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-
   <div class="keys">
     <div data-key="65" class="key">
       <kbd>A</kbd>
@@ -58,7 +57,28 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+  window.addEventListener('keydown', playSound);
 
+  const keys = document.querySelectorAll('.key');
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+  function playSound(e){
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    // console.log('e是',e);
+    // console.log('key是',key);
+    // console.log('audio是', audio);
+    if (!audio) return; 
+    audio.currentTime = 0;
+    audio.play(); 
+    key.classList.add('playing')
+  }
+  function removeTransition(e){
+    // console.log(e)
+    if(e.propertyName !== 'transform') return;//不懂
+    // console.log(e.propertyName)
+    this.classList.remove('playing');
+  };
 </script>
 
 
