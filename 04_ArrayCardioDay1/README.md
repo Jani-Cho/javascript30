@@ -60,9 +60,9 @@ console.log(array1);
 > Array ["Dec", "Feb", "Jan", "March"]
 > Array [1, 21, 30, 4]
 
-####arr.sort([compareFunction])
+#### **arr.sort([compareFunction])**
 
-#####compareFunction 選擇性
+##### compareFunction 選擇性:
 指定一個函式來定義排序順序。假如省略此參數，陣列將根據各個元素轉為字串後的每一個字元之 Unicode 編碼位置值進行排序。
 
 如果 compareFunction 沒有被應用，元素將被轉換為字串並以 Unicode 編碼位置進行比較來排序。舉例來說，"Banana" 會被排在 "cherry" 之前。在數值排序中，9 排在 80 前面，但因為數字被轉換成字串，在 Unicode 順序中 "80" 會在 "9" 的前面。
@@ -95,7 +95,7 @@ console.log(map1);
 
 ## 新增功能
 
-###列出一些常見的歷史人物
-####1 用map()去把人物姓名的整理出來
-####2 用filter()篩選17世紀出生的人物
-####3 用sort()排列人物的出生順序
+##### 列出一些常見的歷史人物:
+1 用map()去把人物姓名的整理出來
+2 用filter()篩選17世紀出生的人物
+3 用sort()排列人物的出生順序
