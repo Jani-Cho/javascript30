@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+  <title>Array Cardio 💪</title>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js"></script>
+    <div id="app">
+      <!-- <table class="table is-striped is-narrow is-hoverable ">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Birth Year</th>
+            <th>Passed Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="inventor in inventors">
+            <th>{{inventor.first}}</th>
+            <th>{{inventor.last}}</th>
+            <th>{{inventor.year}}</th>
+            <th>{{inventor.passed}}</th>
+          </tr>
+        </tbody>
+      </table> -->
+      <h1 class="title is-1">歷史人物隨堂考</h1>
+      <div class="qa" >
+        <div >
+          <span v-for="item in hisName" class="name"> {{item}} </span>
+          <h2 class="title is-2">以上為歷史著名的人物，請根據您對這些人的了解回答以下的問題：</h2>
+        </div>
+        <div class="content" v-for="question in questions">
+          <h4 class="title is-4">{{question.q}}</h4>
+        </div>
+        <button class="button" @click="answerShow = !answerShow">看答案</button>
+        <div class="answer" v-if="answerShow">
+          <li>A1: <span v-for="item in seventeenTh" class="name"> ·{{item.first}}{{item.last}}</span></li>
+          <li>A2: <span v-for="item in orderAge" class="name"> {{item.first}}{{item.last}}·{{item.dynasty}} </span></li>
+        </div>
+      </div>
+    </div>
+
+  <script>
+    const questions = [
+     {q: 'Q1:在17世紀誕生的歷史人物有哪幾位？'},
+     {q: 'Q2:請按照歷史人物的出生年份排序'},
+     {q: 'Q3:在17世紀誕生的歷史人物有哪幾位？'},
+
+    ]
+    const inventors = [
+      { first: '鄭', last: '成功', dynasty: '明', year: 1624, passed: 1662 },
+      { first: '富察', last: '傅恆', dynasty: '清', year: 1720, passed: 1750 },
+      { first: '左', last: '宗棠', dynasty: '清', year: 1812, passed: 1885 },
+      { first: '李', last: '俶', dynasty: '唐', year: 726, passed: 779 },
+      { first: '上官', last: '婉兒', dynasty: '唐', year: 664, passed: 710 },
+      { first: '陶', last: '淵明', dynasty: '東晉', year: 352, passed: 427 },
+      { first: '諸葛', last: '孔明', dynasty: '東漢', year: 181, passed: 234 },
+      { first: '高', last: '長恭', dynasty: '北齊', year: 541, passed: 573 },
+      { first: '李', last: '裕', dynasty: '南唐', year: 937, passed: 978 },
+      { first: '岳', last: '飛', dynasty: '北宋', year: 1128, passed: 1141 },
+      { first: '愛新覺羅', last: '胤禛', dynasty: '清', year: 1678, passed: 1735 },
+    ];
+
+
+
+
+    const vm = new Vue({
+      el: '#app',
+      data() {
+        return {
+          selected: '',
+          inventors,
+          questions,
+          hisName: [],
+          orderAge: [],
+          seventeenTh: [],
+          answerShow : false
+        }
+      },
+      computed: {
+        //使用map 把歷史人物的姓名重整後列出
+        hisName: function() {
+          const hisName = inventors.map(inventor => inventor.first + inventor.last);
+          return hisName
+        },
+        //在17世紀出生的歷史人物
+        seventeenTh: function() {
+          const seventeenTh = inventors.filter(one => (one.year >= 1600 && one.year <1700));
+          return seventeenTh
+        },
+        //按照出生年份排序
+        orderAge: function() {
+          const orderAge = inventors.sort((a,b) => a.year > b.year ? 1 : -1);
+          return orderAge
+        }
+
+
+        
+
+
+      }
+    })
+
+    // Array.prototype.filter()
+    // 1. Filter the list of inventors for those who were born in the 1500's
+    //從陣列中篩選出出生於16世紀的inventors
+
+    
+
+    
+
+    // Array.prototype.map()
+    // 2. Give us an array of the inventors' first and last names
+
+    // Array.prototype.sort()
+    // 3. Sort the inventors by birthdate, oldest to youngest
+
+    // Array.prototype.reduce()
+    // 4. How many years did all the inventors live?
+
+    // 5. Sort the inventors by years lived
+
+    // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
+    // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+
+
+    // 7. sort Exercise
+    // Sort the people alphabetically by last name
+
+    // 8. Reduce Exercise
+    // Sum up the instances of each of these
+    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+
+  </script>
+  <style>
+    @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+    * {
+        font-family: 'Noto Sans TC';
+    }
+    html{
+      background: url('js30-04-bg.jpeg') top center;
+      background-size:cover;
+    }
+    body{
+      max-height: 100vh;
+      color: #fff;
+    }
+
+    #app{
+      margin: 100px auto 0;
+      max-width: 900px;
+    }
+    h1{
+      text-align: center;
+      color: #fff!important;
+    }
+    h2{
+      margin-bottom: 20px;
+    }
+    .qa{
+      color: #1c1c1c;
+      padding: 30px;      
+
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, .5);
+    }
+
+    .name{
+      font-size: 18px;
+      color: #070854;
+    }
+  </style>
+</body>
+</html>
