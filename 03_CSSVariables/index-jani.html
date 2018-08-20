@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scoped CSS Variables and JS</title>
+</head>
+<body>
+  <h2>Change CSS Variables with <span class='h1'>JS</span></h2>
+  <p>拖曳滑桿來調整樣式</p>
+
+  <div class="controls">
+    <label for="spacing">調整邊框:</label>
+    <input id="spacing" type="range" name="spacing" min="0" max="20" value="10" data-sizing="px">
+
+    <label for="blur">調成模糊程度:</label>
+    <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+
+    <label for="base">選擇顏色</label>
+    <input id="base" type="color" name="base" value="#fee1d3">
+
+    <label for="width">調整大小:</label>
+    <input id="width" type="range" name="width" min="400" max="600" value="600" data-sizing="px">
+  </div>
+
+
+  <img src="js03-img.jpg">
+
+  <style>
+  @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+    * {
+        font-family: 'Noto Sans TC';
+    }
+    :root{
+      --base: #fee1d3;
+      --spacing: 10px;
+      --blur: 10px;
+      --width: 500px;
+    }
+    img{
+      max-width: var(--width);
+      width: 100%;
+      padding: var(--spacing);
+      background: var(--base);
+      filter: blur(var(--blur));
+    }
+
+    .h1{
+      color: var(--base);
+    }
+    /*
+      misc styles, nothing to do with CSS variables
+    */
+    h2{
+      font-size: 40px;
+    }
+    p, label{
+      font-size: 20px;
+    }
+    html{
+      background: url('js30-03-bg.jpeg') bottom center;
+      background-size:cover;
+      background-color: #7cbee3;
+    }
+    body {
+      min-height: 100vh;
+      text-align: center;
+      color:white;
+      font-family: 'helvetica neue', sans-serif;
+      font-weight: 100;
+      font-size: 50px;
+    }
+
+    .controls {
+      margin-bottom: 50px;
+    }
+
+    input {
+      width:100px;
+    }
+  </style>
+
+  <script>
+    const inputs = document.querySelectorAll('.controls input')
+
+    function changeUpdate() {
+      const suffix = this.dataset.sizing || '';
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix)
+
+    console.log(this.value)
+    }
+
+    inputs.forEach(input => input.addEventListener('change', changeUpdate))
+    inputs.forEach(input => input.addEventListener('mousemove', changeUpdate))
+
+
+  </script>
+
+</body>
+</html>
