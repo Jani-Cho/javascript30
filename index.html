@@ -83,7 +83,7 @@
     <section id="demo" class="page2" style="display: none; z-index: 1;">
       <!-- header top section -->
 
-      <section id="works-info" class="page2" style="display: none; z-index: 1;">
+      <section id="works-info" >
         <div class="container">
           <div class="row">
             <div class="col-md-7 col-sm-6 hero">
@@ -230,11 +230,11 @@
         return {
           currentPage: 1, //現在頁面
           works,
-          demoTitle: demoDetails[2].demoTitle,
-          demoSubtitle: demoDetails[2].demoSubtitle,
-          demoGithubDemo: demoDetails[2].demoGithubDemo,
-          demoImg: demoDetails[2].demoImg,
-          demoConent: demoDetails[2].demoConent,
+          demoTitle: demoDetails[0].demoTitle,
+          demoSubtitle: demoDetails[0].demoSubtitle,
+          demoGithubDemo: demoDetails[0].demoGithubDemo,
+          demoImg: demoDetails[0].demoImg,
+          demoConent: demoDetails[0].demoConent,
         }
       },
       methods:{
