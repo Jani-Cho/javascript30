@@ -250,25 +250,40 @@
           
           }
           if(this.currentPage < next){
-            nextPageClass.classList.add('rightToleft2'); //page2加入滑動特效
+            nextPageClass.classList.add('rightToleft'); //page2加入滑動特效
             curPageClass.style.display = 'none' ; //page1隱藏
             curPageClass.style.zIndex = '2' ; 
             nextPageClass.style.zIndex = '1' ; 
-            this.currentPage = next; 
-            
-            //選取正確的Demo
+
+            this.currentPage = next; //現在頁面> 2
+            setTimeout(function(){
+              // curPageClass.style.display = 'none' ;  
+              curPageClass.classList.remove('leftToright');
+
+
+            }, 500)
+
+            //選取正確的Demo內容展示
             this.demoTitle = demoDetails[id].demoTitle;
             this.demoSubtitle = demoDetails[id].demoSubtitle;
             this.demoGithubDemo = demoDetails[id].demoGithubDemo;
             this.demoImg = demoDetails[id].demoImg;
             this.demoConent = demoDetails[id].demoConent;
           }else{
-            nextPageClass.classList.add('leftToright2');
+            //現在nextPageClass是page1
+            nextPageClass.classList.add('leftToright');
             nextPageClass.style.display = 'block' ;
             curPageClass.style.zIndex = '1' ; 
             nextPageClass.style.zIndex = '2' ; 
-            this.currentPage = next; 
-            // console.log(this.currentPage)
+            this.currentPage = next; //現在頁面> 1
+
+            //移除現在頁面
+
+            setTimeout(function(){
+              curPageClass.classList.remove('rightToleft');
+
+
+            }, 500)
           }
           window.document.documentElement.scrollTop = 0; //視窗會回到最頂端
           
@@ -281,7 +296,6 @@
           const showPage2 = document.querySelector('.page2');
           showPage2.style.display =  `block`;
 
-          // console.log(id)
           this.nextContent(2, id);
         },
 
