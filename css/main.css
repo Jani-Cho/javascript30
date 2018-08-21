@@ -1,4 +1,6 @@
-
+.fa{
+	color: #000;
+}
 p {
 	font-size: 14px;
 	line-height: 22.4px;
@@ -412,3 +414,142 @@ ul li {
 {
 	color:#000;
 }
+
+/* ------------------------------------------------------------------------------
+	 Demo Slider
+-------------------------------------------------------------------------------*/
+@-moz-keyframes rightToleft {
+	from {
+	  transform: translateX(0);
+	}
+	to {
+	  transform: translateX(-100%);
+	}
+  }
+  @-webkit-keyframes rightToleft {
+	from {
+	  transform: translateX(0);
+	}
+	to {
+	  transform: translateX(-100%);
+	}
+  }
+  @keyframes rightToleft {
+	from {
+	  transform: translateX(0);
+	}
+	to {
+	  transform: translateX(-100%);
+	}
+  }
+  /* line 5, ../sass/_leftAndright.scss */
+  .rightToleft {
+	-moz-animation: rightToleft 0.5s linear 0s 1 alternate;
+	-webkit-animation: rightToleft 0.5s linear 0s 1 alternate;
+	animation: rightToleft 0.5s linear 0s 1 alternate;
+	-moz-animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+  }
+  
+  @-moz-keyframes rightToleft2 {
+	from {
+	  transform: translateX(100%);
+	}
+	to {
+	  transform: translateX(0);
+	}
+  }
+  @-webkit-keyframes rightToleft2 {
+	from {
+	  transform: translateX(100%);
+	}
+	to {
+	  transform: translateX(0);
+	}
+  }
+  @keyframes rightToleft2 {
+	from {
+	  transform: translateX(100%);
+	}
+	to {
+	  transform: translateX(0);
+	}
+  }
+  /* line 14, ../sass/_leftAndright.scss */
+  .rightToleft2 {
+	-moz-animation: rightToleft2 0.5s linear 0s 1 alternate;
+	-webkit-animation: rightToleft2 0.5s linear 0s 1 alternate;
+	animation: rightToleft2 0.5s linear 0s 1 alternate;
+	-moz-animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+  }
+  
+  @-moz-keyframes leftToright {
+	from {
+	  transform: translateX(0);
+	}
+	to {
+	  transform: translateX(100%);
+	}
+  }
+  @-webkit-keyframes leftToright {
+	from {
+	  transform: translateX(0);
+	}
+	to {
+	  transform: translateX(100%);
+	}
+  }
+  @keyframes leftToright {
+	from {
+	  transform: translateX(0);
+	}
+	to {
+	  transform: translateX(100%);
+	}
+  }
+  /* line 23, ../sass/_leftAndright.scss */
+  .leftToright {
+	-moz-animation: leftToright 0.5s linear 0s 1 alternate;
+	-webkit-animation: leftToright 0.5s linear 0s 1 alternate;
+	animation: leftToright 0.5s linear 0s 1 alternate;
+	-moz-animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+  }
+  
+  @-moz-keyframes leftToright2 {
+	from {
+	  transform: translateX(-100%);
+	}
+	to {
+	  transform: translateX(0);
+	}
+  }
+  @-webkit-keyframes leftToright2 {
+	from {
+	  transform: translateX(-100%);
+	}
+	to {
+	  transform: translateX(0);
+	}
+  }
+  @keyframes leftToright2 {
+	from {
+	  transform: translateX(-100%);
+	}
+	to {
+	  transform: translateX(0);
+	}
+  }
+  /* line 32, ../sass/_leftAndright.scss */
+  .leftToright2 {
+	-moz-animation: leftToright2 0.5s linear 0s 1 alternate;
+	-webkit-animation: leftToright2 0.5s linear 0s 1 alternate;
+	animation: leftToright2 0.5s linear 0s 1 alternate;
+	-moz-animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+  }

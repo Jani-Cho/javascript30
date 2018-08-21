@@ -1,6 +1,6 @@
-# 04 -  Array Cardio
+# 05 - Gallery
 
-![](https://jani-cho.github.io/javascript30/images/js04.png)
+![](https://jani-cho.github.io/javascript30/images/js05.png)
 
 ## 主要內容
 使用filter(),map(),sort(),reduce(),includes(),split()等搭配array來進行的幾個小練習。
@@ -8,7 +8,7 @@
 原本的JS30課程只有用console來觀察程式，為了透過畫面呈現資料，遂加入Vue.js來使用，加入`v-for` `v-bind` `v-model`等實作，以及`computed` `method`等生命週期簡單的實作。
 
 [[JS30作品頁]](https://jani-cho.github.io/javascript30/) 
-[[DEMO展示頁]](https://jani-cho.github.io/javascript30/04_ArrayCardioDay1/index-jani.html)  
+[[DEMO展示頁]](https://jani-cho.github.io/javascript30/05_FlexPanelGallery/index-jani.html)  
 
 
 ## **JavaScript小筆記**

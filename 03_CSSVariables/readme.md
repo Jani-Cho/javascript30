@@ -5,7 +5,7 @@
 ## 主要內容
 可以在頁面上即時更改CSS樣式。
 拖曳滑桿時可以改變透明度、模糊、邊框大小＆顏色等功能。  
-[[WEB作品頁]](https://jani-cho.github.io/javascript30/demo/js03.html)  
+[[JS30作品頁]](https://jani-cho.github.io/javascript30/)  
 [[DEMO展示頁]](https://jani-cho.github.io/javascript30/03_CSSVariables/index-jani.html)  
 
 
