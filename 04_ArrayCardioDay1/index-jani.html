@@ -39,6 +39,7 @@
         <div class="answer" v-if="answerShow">
           <li>A1: <span v-for="item in seventeenTh" class="name"> ·{{item.first}}{{item.last}}</span></li>
           <li>A2: <span v-for="item in orderAge" class="name"> {{item.first}}{{item.last}}·{{item.dynasty}} </span></li>
+          <li>A3: <span v-for="item in liveAge" class="name"> {{item}}</span></li>
         </div>
       </div>
     </div>
@@ -47,7 +48,7 @@
     const questions = [
      {q: 'Q1:在17世紀誕生的歷史人物有哪幾位？'},
      {q: 'Q2:請按照歷史人物的出生年份排序'},
-     {q: 'Q3:在17世紀誕生的歷史人物有哪幾位？'},
+     {q: 'Q3:有幾位歷史人物的年紀超過四十歲？'},
 
     ]
     const inventors = [
@@ -95,6 +96,27 @@
         orderAge: function() {
           const orderAge = inventors.sort((a,b) => a.year > b.year ? 1 : -1);
           return orderAge
+        },
+        //計算生平年歲
+        liveAge: function() {
+          const liveAge = inventors.sort(function(a,b){
+            const lastOne = a.passed - a.year;
+            const nextOne = b.passed - b.year;
+            return lastOne > nextOne ? -1 : 1;
+
+
+          });
+
+
+        },
+
+        totalAge: function() {
+          const totalAge = inventors.reduce((total, inventor) => {
+            return total + (inventor.passed - inventor.year);
+
+          }, 0);
+
+
         }
 
 
