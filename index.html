@@ -22,143 +22,112 @@
 </head>
 <body>
 <!-- header top section -->
-<div id="app">
-
-
-  <section class="banner" role="banner">
-    <header id="header">
-      <div class="header-content clearfix"> <a class="logo" href="index.html">Jani's Website</a>
-        <nav class="navigation" role="navigation">
-          <ul class="primary-nav">
-            <li>Other Works</li>
-            <li><a href="mainlto:hello@phdl.co">janicho117@gmail.com</a></li>
-          </ul>
-        </nav>
-        <a href="#" class="nav-toggle">Menu<span></span></a> </div>
-    </header>
-  </section>
-  <!-- header top section --> 
-  <!-- header content section -->
-  <section id="hero">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-7 col-sm-6 hero">
-          <div class="hero-content">
-            <h1>Javascript 30</h1>
-          </div>
-          <!-- hero --> 
-        </div>
-        <div class="col-md-5 col-sm-6 hero">
-          <div class="hero-content">
-            <p>由加拿大工程師Wes Bos設計的30個JS練習，實作加上個人的小創意。（附上：<a href="https://javascript30.com/">JavaScript 30</a>課程網站）</p>
-          </div>
-          <!-- hero --> 
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- header content section --> 
-  <!-- 專案展示頁面 Works Section Start-->
-  <section id="portfolio" class="page1" >
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <hr class="section">
-        </div>
-      </div>
-      <div class="row" >
-        <div class="col-sm-6 portfolio-item" @click="goDetail()" v-for="(work, index) in works" :value="`${index}`"> 
-          <div class="portfolio-link">
-          <div class="caption">
-            <div class="caption-content">
-              <h3>{{work.title}}</h3>
-              <h4>{{work.subTitle}}</h4>
-            </div>
-          </div>
-          <img :src="`${work.img}`" class="img-responsive" alt=""> </div> 
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- 專案展示頁面 Works Section End-->
-  <!-- 專案內容展示頁面 Demo Section Start  -->
-  <section id="demo" class="page2" style="display: none; z-index: 1;">
-    <!-- header top section -->
-
-    <section id="works-info" class="page2" style="display: none; z-index: 1;">
+  <div id="app">
+    <section class="banner" role="banner">
+      <header id="header">
+        <div class="header-content clearfix"> <a class="logo" href="index.html">Jani's Website</a>
+          <nav class="navigation" role="navigation">
+            <ul class="primary-nav">
+              <li>Other Works</li>
+              <li><a href="mainlto:hello@phdl.co">janicho117@gmail.com</a></li>
+            </ul>
+          </nav>
+          <a href="#" class="nav-toggle">Menu<span></span></a> </div>
+      </header>
+    </section>
+    <!-- header top section --> 
+    <!-- header content section -->
+    <section id="hero">
       <div class="container">
         <div class="row">
           <div class="col-md-7 col-sm-6 hero">
             <div class="hero-content">
-              <h4>{{demoTitle}}</h4>
-              <p>{{demoSubtitle}}</p>
+              <h1>Javascript 30</h1>
             </div>
             <!-- hero --> 
           </div>
-          <div class="col-md-5 col-sm-6 hero text-center">
-            <div class="hero-content"> <a :href="`${demoGithubDemo}`" class="btn"> Demo <i class="fa fa-long-arrow-right"></i> </a> </div>
+          <div class="col-md-5 col-sm-6 hero">
+            <div class="hero-content">
+              <p>由加拿大工程師Wes Bos設計的30個JS練習，實作加上個人的小創意。（附上：<a href="https://javascript30.com/">JavaScript 30</a>課程網站）</p>
+            </div>
             <!-- hero --> 
           </div>
         </div>
       </div>
     </section>
-
-    <section id="work-detail">
+    <!-- header content section --> 
+    <!-- 專案展示頁面 Works Section Start-->
+    <section id="portfolio" class="page1" >
       <div class="container">
-        <hr>
         <div class="row">
-          <div class="col-md-12 work-detail ">
-            <div class="work-detail"> <img :src="`${demoImg}`" class="img-responsive" alt=""> 
-              <p class="extra-padding">{{demoConent}}</p>
+          <div class="col-lg-12 text-center">
+            <hr class="section">
+          </div>
+        </div>
+        <div class="row" >
+          <div class="col-sm-6 portfolio-item" @click="goDetail(work.id)" v-for="(work, index) in works"> 
+            <div class="portfolio-link">
+            <div class="caption" >
+              <div class="caption-content">
+                <h3>{{work.title}}</h3>
+                <h4>{{work.subTitle}}</h4>
+              </div>
             </div>
+            <img :src="`${work.img}`" class="img-responsive" alt=""> </div> 
           </div>
         </div>
       </div>
     </section>
+    <!-- 專案展示頁面 Works Section End-->
+    <!-- 專案內容展示頁面 Demo Section Start  -->
+    <section id="demo" class="page2" style="display: none; z-index: 1;">
+      <!-- header top section -->
 
-    <section id="backto" class="backto work-detail section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2 text-center section" @click="goBack()"><i class="fa fa-th fa-2x"></i>
-            <p>Back to projects</p>
+      <section id="works-info" class="page2" style="display: none; z-index: 1;">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-7 col-sm-6 hero">
+              <div class="hero-content">
+                <h4>{{demoTitle}}</h4>
+                <p>{{demoSubtitle}}</p>
+              </div>
+              <!-- hero --> 
+            </div>
+            <div class="col-md-5 col-sm-6 hero text-center">
+              <div class="hero-content"> <a :href="`${demoGithubDemo}`" class="btn"> Demo <i class="fa fa-long-arrow-right"></i> </a> </div>
+              <!-- hero --> 
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <section id="work-detail">
+        <div class="container">
+          <hr>
+          <div class="row">
+            <div class="col-md-12 work-detail ">
+              <div class="work-detail"> <img :src="`${demoImg}`" class="img-responsive" alt=""> 
+                <p class="extra-padding">{{demoConent}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="backto" class="backto work-detail section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center section" @click="goBack()"><i class="fa fa-th fa-2x"></i>
+              <p>Back to projects</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </section>
-
-  </section>
-  <!-- 專案內容展示頁面 Demo Section End -->
-  <!-- service section -->
-  <!-- <section id="service" class="service section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-5 col-sm-6">
-          <h4>We're expert to create beautiful design & smart technology</h4>
-          <p>Nullam at enim mauris. Donec et nunc ipsum. Suspendi tempus fringilla ipsu Cras metus euismod velit gravida at nunc ipsum.</p>
-        </div>
-        <div class="col-md-7 col-sm-6">
-          <div class="col-md-4 col-sm-6 service text-center"> <span class="icon icon-browser"></span>
-            <div class="service-content">
-              <h5>Web & Mobile</h5>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 service text-center"> <span class="icon icon-trophy"></span>
-            <div class="service-content">
-              <h5>Branding</h5>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 service text-center"> <span class="icon icon-megaphone"></span>
-            <div class="service-content">
-              <h5>Digital Marketing</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-  <!-- service section --> 
-  <!-- footer section -->
-</div>
+    <!-- 專案內容展示頁面 Demo Section End -->
+    <!-- service section -->
+  </div>
   <footer class="footer">
       <div class="container">
         <div class="col-md-6 left">
@@ -171,7 +140,6 @@
         </div>
       </div>
   </footer>
-<!-- footer section --> 
 
 <!-- VUE -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js"></script>
@@ -179,30 +147,35 @@
 
     const works = [
       {
+        id: 0,
         demoUrl: 'demo/js01.html',
         title: '#1 Drum Kit',
         subTitle: '按鍵盤可以發出相對的樂器聲音',
         img: 'images/js01.png'
       },
       {
+        id: 1,
         demoUrl: 'demo/js02.html',
         title: '#2 Clock',
         subTitle: '動態時鐘',
         img: 'images/js02.png'
       },
       {
+        id: 2,
         demoUrl: 'demo/js03.html',
         title: '#3 CSS Variables',
         subTitle: 'CSS 樣式即時調整',
         img: 'images/js03.png'
       },
       {
+        id: 3,
         demoUrl: 'demo/js04.html',
         title: '#4 Array Cardio',
         subTitle: '搭配Vue.js來進行的幾個小練習。',
         img: 'images/js04.png'
       },
       {
+        id: 4,
         demoUrl: 'demo/js05.html',
         title: '#5 Flex Panels',
         subTitle: 'CSS Flex 搭配 JS來製作動態小網頁',
@@ -240,10 +213,10 @@
       },
       {
         demoTitle: '#5 Gallery',
-        demoSubtitle: 'FlexBox & ',
+        demoSubtitle: 'FlexBox & JS 小練習',
         demoGithubDemo: 'https://jani-cho.github.io/javascript30/05_FlexPanelGallery/index-jani.html',
-        demoImg: 'images/js01.png',
-        demoConent: '#1 Javascript30 - Drum Kit'
+        demoImg: 'images/js00.png',
+        demoConent: '#5 Javascript30 - Gallery'
       },
 
     ]
@@ -266,7 +239,7 @@
       },
       methods:{
         //Demo頁面切換
-        nextContent(next) {
+        nextContent(next, id) {
           const curPage = ".page"+this.currentPage; //.page1
           const nextPage =".page"+next; //.page2
           const curPageClass = document.querySelector(curPage); //抓取.page1的section
@@ -283,24 +256,33 @@
             nextPageClass.style.zIndex = '1' ; 
             this.currentPage = next; 
             
-            console.log(this.currentPage)
-
+            //選取正確的Demo
+            this.demoTitle = demoDetails[id].demoTitle;
+            this.demoSubtitle = demoDetails[id].demoSubtitle;
+            this.demoGithubDemo = demoDetails[id].demoGithubDemo;
+            this.demoImg = demoDetails[id].demoImg;
+            this.demoConent = demoDetails[id].demoConent;
           }else{
             nextPageClass.classList.add('leftToright2');
             nextPageClass.style.display = 'block' ;
             curPageClass.style.zIndex = '1' ; 
             nextPageClass.style.zIndex = '2' ; 
             this.currentPage = next; 
-            console.log(this.currentPage)
+            // console.log(this.currentPage)
           }
           window.document.documentElement.scrollTop = 0; //視窗會回到最頂端
+          
+
+
         },
 
         //顯示Demo頁(.page2)的內容
-        goDetail() {
+        goDetail(id) {
           const showPage2 = document.querySelector('.page2');
           showPage2.style.display =  `block`;
-          this.nextContent(2);
+
+          // console.log(id)
+          this.nextContent(2, id);
         },
 
         //返回Works頁(.page1)的內容
