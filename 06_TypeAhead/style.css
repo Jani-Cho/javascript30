@@ -1,9 +1,13 @@
     html {
+      background: url('js30-06-bg.jpg') bottom center fixed;
+      background-size: cover;
       box-sizing: border-box;
-      background:#ffc600;
       font-family:'helvetica neue';
       font-size: 20px;
       font-weight: 200;
+    }
+    body {
+      height: 100vh;
     }
     *, *:before, *:after {
       box-sizing: inherit;
@@ -14,8 +18,9 @@
     }
 
     .search-form {
-      max-width:400px;
-      margin:50px auto;
+      
+      max-width:100%;
+      margin:50px 5%;
     }
 
     input.search {

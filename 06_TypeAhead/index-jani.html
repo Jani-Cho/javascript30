@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Type Ahead 👀</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <form class="search-form">
+    <h1 class="title is-1">Online Library</h1>
+    <input type="text" class="input" placeholder="Book or Author">
+    <h2 class="title is-6">Filter for a book 搜尋書名 or an author 或作者</h2>
+    </ul>
+  </form>
+
+  <div class="suggestions"></div>
+<script>
+// const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+const endpoint = 'https://gist.githubusercontent.com/mdunbavan/9f4a6f9795e89110859a0d72aebcb589/raw/fcc7b2c4590453eed41def69c02829165c52143d/books.json'
+const cities = [];
+
+fetch(endpoint)
+  .then(blob => blob.json())
+  .then(data => cities.push(...data))
+
+function findMatches(wordToMatch, cities){
+  return cities.filter(book => {
+    const regex = new RegExp(wordToMatch, 'gi');
+    return book.author.name.match(regex) || book.name.match(regex)
+
+  });
+}
+
+function numberWithCommas(x){
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+function displayMatches() {
+  const matchArray = findMatches(this.value, cities);
+  const html = matchArray.map(book => {
+    const regex = new RegExp(this.value, 'gi');
+    const authorName = book.author.name.replace(regex, `<span class="hl">${this.value}</span>`)
+    const bookName = book.name.replace(regex, `<span class="hl">${this.value}</span>`)
+    return `
+      <li>
+        <span class="name">${authorName},${bookName}</span>
+        <span class="population">${numberWithCommas(book.likes)}</span>
+      </li>
+    `;
+  }).join('');
+  suggestions.innerHTML = html;
+
+}
+
+const searchInput = document.querySelector('.input');
+const suggestions = document.querySelector('.suggestions');
+
+searchInput.addEventListener('change' , displayMatches);
+searchInput.addEventListener('keyup' , displayMatches);
+</script>
+
+  </body>
+</html>
